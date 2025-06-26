@@ -4,23 +4,28 @@
     <meta charset="UTF-8">
     <title>Awesome Calculator</title>
 </head>
-<body style = "background-color: beige; margin: 30">
-<h1 style="background-color: aliceblue; margin: 0;">Awesome Calculator</h1>
+<body style = "background-color: beige; margin: 10px">
+<h1 style=" margin: 10px atuo; padding: 15px; text-align: center;">Awesome Calculator</h1>
 <hr>
 <form th:action="@{/calculate}" method="post">
-    <label for="num1">Number 1:</label>
-    <input type="number" step="any" id="num1" name="num1" required/>
+    <div class="box">
+        <label for="num1" style = "font-size: 24px;">Number 1</label>
+        <input type="number" step="any" id="num1" name="num1" required>
+    </div>
+    <div class="box">
+        <label for="num2"style = "font-size: 24px;">Number 2</label>
+        <input type="number" step="any" id="num2" name="num2" required>
+    </div>
+    <div class="box">
+        <label for="operation"style = "font-size: 24px;">Operation </label>
+        <select id="operation" name="operation">
+            <option value="add">Add (+)</option>
+            <option value="subtract">Subtract (-)</option>
+            <option value="multiply">Multiply (×)</option>
+            <option value="divide">Divide (/)</option>
+        </select>
+    </div>
 
-    <label for="num2">Number 2:</label>
-    <input type="number" step="any" id="num2" name="num2" required/>
-
-    <label for="operation">Operation: </label>
-    <select id="operation" name="operation">
-        <option value="add">Add (+)</option>
-        <option value="subtract">Subtract (-)</option>
-        <option value="multiply">Multiply (×)</option>
-        <option value="divide">Divide (/)</option>
-    </select>
 
     <button type="submit" style="font-family: exqt">Calculate</button>
 
@@ -47,10 +52,11 @@
 
         form {
             background: #ffff00;
-            margin: 40;
+            margin: 10px auto;
             padding: 20px;
             border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0,0,0,.5);
+            box-shadow: 0 2px 4px rgba(0,0,0,.1);
+            max-width: 400px;
     }
     label {
     display: black;
@@ -59,10 +65,10 @@
     input, select{
         width: 100%
         background-color: #f7ff00;
-        border: none;
         margin-top: 5px;
         margin-bottom: 15px;
         border: 1px solid #0c0c0c;
+        font-size: 24px;
     }
 
     button {
