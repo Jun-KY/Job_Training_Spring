@@ -16,20 +16,22 @@ public class CalculatorController {
     public CalculatorController(CalculatorService calculatorService) {
         this.calculatorService = calculatorService;
     }
-    @GetMapping ("/cal")
+    @GetMapping ("/")
     public String showCalculator(){
         return "calculator";
     }
 
-    @PostMapping("/calculator")
+    @PostMapping("/calculate")
     public String calculate(
             @RequestParam("num1") double num1,
             @RequestParam("num2") double num2,
             @RequestParam("operation") String operation,
             Model model
+
     ) {
+        double result = 0;
         try {
-            double result = calculatorService.calculate(num1, num2, operation);
+            result = calculatorService.calculate(num1, num2, operation);
             model.addAttribute("result", result);
         } catch(IllegalArgumentException e) {
             model.addAttribute("errorMessage", e.getMessage());
