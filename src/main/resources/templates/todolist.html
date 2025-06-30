@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Awesome To Do List</title>
+    <link rel = "stylesheet" th:href="@{/styles.css}"/>
+
+</head>
+<body>
+<div class ="container">
+    <h1>This is 'To Do List'</h1>
+    <form th:action = "@{/todos}" method="post">
+        <input type = "text" name = "task" placeholder = "Enter a new task" required />
+        <button type = "submit"> Add ToDo</button>
+    </form>
+    <div class="todo-list">
+        <ul>
+            <li th:each="task:${todos}">
+                <form th:action="@{/todos/toggle}" method="post" style="display:inLine;">
+                    <input type="hidden" name="taskId" th:value="${task.id}" />
+                    <input type="checkbox" onclick="this.form.submit()" th:checked="${task.completed}" />
+                </form>
+                <span th:style="${task.completed} ?
+                'text-decoration: line-through;' : ''"
+                      th:text="${task.description}">
+                    Task description
+                </span>
+                <form th:action = "@{/todos/update}" method = "post" style="display:inline;">
+                    <input type="hidden" name="taskId" th:value="${task.id}"/>
+                    <input type="text" name="newDescription" placeholder="Edit Task" required/>
+                    <button style="submit">Update</button>
+                </form>
+                <form th:action = "@{/todos/delete}" method = "post" style="display:inline;">
+                    <input type="text" name="taskId" th:value="${task.id}"/>
+                    <button style="submit">Delete</button>
+                </form>
+
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>
