@@ -1,9 +1,9 @@
     /* 전체 레이아웃 및 배경 */
     body {
-    margin: 0;
-    padding: 0;
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f2f4f8;
+        margin: 0;
+        padding: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f2f4f8;
     }
 
     /* 가운데 카드 형태의 컨테이너 */
