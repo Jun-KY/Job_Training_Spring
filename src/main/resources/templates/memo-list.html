@@ -17,8 +17,18 @@
 
   <ul>
       <li th:each="memo: ${memos}">
-          <h3 th:text="${memo.title}"></h3>
-          <p th:text="${memo.content}"></p>
+          <div>
+              <h3 th:text="${memo.title}"></h3>
+              <p th:text="${memo.content}"></p>
+          </div>
+
+          <div>
+              <a th:href="@{'/edit/' + ${memo.id}}">edit</a>
+              <form th:action="@{/delete}" method="post" style="display:inLine;">
+                  <input type="hidden" name="id" th:value="${memo.id}"/>
+                  <button type="submit">Delete</button>
+              </form>
+          </div>
       </li>
   </ul>
 </body>

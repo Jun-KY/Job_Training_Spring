@@ -33,4 +33,11 @@ public class MemoRepository {
                 title, content
         );
     }
+
+    public void delete(int id){
+        jdbcTemplate.update(
+                "DELETE FROM memo WHERE id = ?",
+                id
+        );
+    }
 }

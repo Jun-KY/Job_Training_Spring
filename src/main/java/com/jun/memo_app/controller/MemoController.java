@@ -28,6 +28,12 @@ public class MemoController {
         memoRepository.save(title, content);
 
         return "redirect:/";
+    }
 
+    @PostMapping("/delete")
+    public String deleteMemo(@RequestParam int id){
+        memoRepository.delete(id);
+
+        return "redirect:/";
     }
 }

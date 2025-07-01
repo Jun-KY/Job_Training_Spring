@@ -19,7 +19,7 @@ h1 {
 }
 
 /* 폼 */
-form {
+.add-form {
     max-width: 600px;
     margin: 30px auto;
     background-color: #fffdf5;
@@ -39,6 +39,7 @@ textarea {
     font-size: 16px;
     background-color: #fefcf8;
     resize: vertical;
+    box-sizing: border-box;
 }
 
 input[type="text"]:focus,
@@ -79,6 +80,9 @@ li {
     border-radius: 10px;
     box-shadow: 1px 3px 6px rgba(0,0,0,0.08);
     position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 li h3 {
