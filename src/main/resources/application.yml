@@ -1,24 +1,24 @@
 spring:
   application:
-    name: memo_app
+    name: ${APP_NAME}
   datasource:
-    url: jdbc:postgresql://localhost:5432/memo_app
-    username: memo_app
-    password: wnsl9391
-  jpa:
-    hibernate:
-      ddl-auto: update
-    show-sql:
-app:
-  admin:
-    password: ${ADMIN_PASSWORD}
-
-cloud:
-  aws:
-    credentials:
-      access-key: ${AWS_ACCESS_KEY}
-      secret-key: ${AWS_SECRET_KEY}
-    region:
-      static: ap-northeast-2
-    s3:
-      bucket: code-present
+    url: jdbc:postgresql://${DB_HOST}:${DB_PORT}/${DB_NAME}?sslmode=disable
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#    show-sql:
+#app:
+#  admin:
+#    password: ${ADMIN_PASSWORD}
+#
+#cloud:
+#  aws:
+#    credentials:
+#      access-key: ${AWS_ACCESS_KEY}
+#      secret-key: ${AWS_SECRET_KEY}
+#    region:
+#      static: ap-northeast-2
+#    s3:
+#      bucket77: code-present

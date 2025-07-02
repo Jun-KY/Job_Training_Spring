@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit Memo</title>
+  <link rel="stylesheet" th:href="@{/styles.css}"/>
+</head>
+<body>
+  <h1>edit memo</h1>
+
+  <form th:action="@{/edit}" method="post">
+    <input hidden="hidden" name="id" th:value="${memo.id}" />
+    <input type="text" name="title" th:value="${memo.title}" required />
+    <br />
+    <textarea name="content" th:text="${memo.content}" required></textarea>
+    <br />
+    <button type="submit">Complete</button>
+    <a href="/" class="cancel">cancel</a>
+  </form>
+</body>
+</html>

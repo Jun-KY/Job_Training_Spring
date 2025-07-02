@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" th:href="@{/styles.css}"/>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" th:href="@{/styles.css}"/>
 </head>
 <body>
 <h1>Simple NotePad</h1>
-  <form th:action="@{/add}" method="post">
-    <input type="text" name="title" placeholder="Input title" required>
+  <form class="add-form" th:action="@{/add}" method="post">
+    <input type="text" name="title" placeholder="Input title" required/>
     <br/>
       <textarea name ="content" placeholder="Input detail" required></textarea>
       <br />
@@ -22,13 +22,14 @@
               <p th:text="${memo.content}"></p>
           </div>
 
-          <div>
+          <div class="actions">
               <a th:href="@{'/edit/' + ${memo.id}}">edit</a>
               <form th:action="@{/delete}" method="post" style="display:inLine;">
                   <input type="hidden" name="id" th:value="${memo.id}"/>
                   <button type="submit">Delete</button>
               </form>
           </div>
+          <link rel="stylesheet" th:href="@{/styles.css}"/>
       </li>
   </ul>
 </body>
