@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Summery Daily Sales</title>
+    <link rel="stylesheet" th:href="@{/style.css}"/>
+</head>
+<body>
+<h1>Daily Sales Summery</h1>
+
+<p class="nav-link">
+  <a href="/sales/add">➕ New sales</a>
+</p>
+
+<table>
+  <thead>
+  <tr>
+    <th>Date</th>
+    <th>Total sales</th>
+    <th>Purchases</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="sale: ${sales}">
+    <td th:text="${sale.saleDate}">2025-01-01</td>
+    <td th:text="${#numbers.formatDecimal(sale.totalAmount, 0, 'COMMA', 2, 'POINT')}">0</td>
+    <td th:text="${sale.orderCount}">0</td>
+  </tr>
+  </tbody>
+</table>
+
+<p class="nav-link">
+  <a href="/customer-ranking">Customers' Rank by orders →</a>
+</p>
+</body>
+</html>
